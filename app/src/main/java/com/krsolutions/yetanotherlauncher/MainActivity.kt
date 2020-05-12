@@ -16,8 +16,9 @@ class MainActivity : AppCompatActivity() {
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         val view = mainBinding.root
         setContentView(view)
-
-        resolvedApplist = this.packageManager.queryIntentActivities(Intent(Intent.ACTION_MAIN,null).addCategory(Intent.CATEGORY_LAUNCHER),0)
+        resolvedApplist = packageManager
+            .queryIntentActivities(Intent(Intent.ACTION_MAIN,null)
+                .addCategory(Intent.CATEGORY_LAUNCHER),0)
         val appList = ArrayList<AppBlock>()
 
         for (ri in resolvedApplist) {
